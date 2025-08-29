@@ -1,0 +1,915 @@
+{
+	"info": {
+		"_postman_id": "abb7d7fd-1339-4cea-8475-a434d339308c",
+		"name": "Banking API - Microservicios V2",
+		"description": "Colección única con todos los endpoints agrupados por servicio: Client Service, Account Service (Cuentas, Movimientos, Reportes)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23133124"
+	},
+	"item": [
+		{
+			"name": "Client Service",
+			"item": [
+				{
+					"name": "Endpoint de salud de clientes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURLCLI}}/api/clientes/health",
+							"host": [
+								"{{baseURLCLI}}"
+							],
+							"path": [
+								"api",
+								"clientes",
+								"health"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear Cliente",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nombre\": \"José Soledispa\",\n  \"genero\": \"Masculino\",\n  \"edad\": 30,\n  \"identificacion\": \"2400036498\",\n  \"direccion\": \"Calle 123\",\n  \"telefono\": \"0960696292\",\n  \"clienteId\": \"CLI105\",\n  \"contrasena\": \"prueba123\"\n}"
+						},
+						"url": {
+							"raw": "{{baseURLCLI}}/api/clientes",
+							"host": [
+								"{{baseURLCLI}}"
+							],
+							"path": [
+								"api",
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar Cliente",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nombre\": \"José Andrés Soledispa Yagual\",\n  \"genero\": \"Masculino\",\n  \"edad\": 28,\n  \"identificacion\": \"2400036493\",\n  \"direccion\": \"Santa Elena - La Libertad\",\n  \"telefono\": \"0960696292\",\n  \"clienteId\": \"CLI100\",\n  \"contrasena\": \"prueba1234\"\n}"
+						},
+						"url": {
+							"raw": "{{baseURLCLI}}/api/clientes/1",
+							"host": [
+								"{{baseURLCLI}}"
+							],
+							"path": [
+								"api",
+								"clientes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Activar - Desactivar Cliente",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"estado\": false\n}"
+						},
+						"url": {
+							"raw": "{{baseURLCLI}}/api/clientes/6/estado",
+							"host": [
+								"{{baseURLCLI}}"
+							],
+							"path": [
+								"api",
+								"clientes",
+								"6",
+								"estado"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar Cliente (lógica)",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURLCLI}}/api/clientes/5",
+							"host": [
+								"{{baseURLCLI}}"
+							],
+							"path": [
+								"api",
+								"clientes",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar Cliente (físico)",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURLCLI}}/api/clientes/4/fisico",
+							"host": [
+								"{{baseURLCLI}}"
+							],
+							"path": [
+								"api",
+								"clientes",
+								"4",
+								"fisico"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Cliente por ClienteId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURLCLI}}/api/clientes/clienteId/CLI100",
+							"host": [
+								"{{baseURLCLI}}"
+							],
+							"path": [
+								"api",
+								"clientes",
+								"clienteId",
+								"CLI100"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Listado de Clientes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURLCLI}}/api/clientes",
+							"host": [
+								"{{baseURLCLI}}"
+							],
+							"path": [
+								"api",
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Account Service - Cuentas",
+			"item": [
+				{
+					"name": "Endpoint de salud de cuentas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURLCU}}/api/cuentas/health",
+							"host": [
+								"{{baseURLCU}}"
+							],
+							"path": [
+								"api",
+								"cuentas",
+								"health"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear Cuenta",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"numeroCuenta\": \"2400040\",\n  \"tipoCuenta\": \"Ahorro\",\n  \"saldoInicial\": 10000.00,\n  \"saldoActual\": 10000.00,\n  \"estado\": true,\n  \"clienteId\": \"CLI100\"\n}"
+						},
+						"url": {
+							"raw": "{{baseURLCU}}/api/cuentas",
+							"host": [
+								"{{baseURLCU}}"
+							],
+							"path": [
+								"api",
+								"cuentas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar Cuenta (ID)",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"numeroCuenta\": \"2400040\",\n  \"tipoCuenta\": \"Ahorro\",\n  \"saldoInicial\": 2000.00,\n  \"estado\": true,\n  \"clienteId\": \"CLI100\"\n}"
+						},
+						"url": {
+							"raw": "{{baseURLCU}}/api/cuentas/5",
+							"host": [
+								"{{baseURLCU}}"
+							],
+							"path": [
+								"api",
+								"cuentas",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar Cuenta (NUMERO CUENTA)",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"numeroCuenta\": \"2400039\",\n  \"tipoCuenta\": \"Ahorro\",\n  \"saldoInicial\": 700.00,\n  \"estado\": true,\n  \"clienteId\": \"CLI100\"\n}"
+						},
+						"url": {
+							"raw": "{{baseURLCU}}/api/cuentas/numero/2400039",
+							"host": [
+								"{{baseURLCU}}"
+							],
+							"path": [
+								"api",
+								"cuentas",
+								"numero",
+								"2400039"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar Cuenta (lógica)",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURLCU}}/api/cuentas/2",
+							"host": [
+								"{{baseURLCU}}"
+							],
+							"path": [
+								"api",
+								"cuentas",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar Cuenta (físico)",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURLCU}}/api/cuentas/3/fisico",
+							"host": [
+								"{{baseURLCU}}"
+							],
+							"path": [
+								"api",
+								"cuentas",
+								"3",
+								"fisico"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Cuenta por numCuenta",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURLCU}}/api/cuentas/numero/2400036",
+							"host": [
+								"{{baseURLCU}}"
+							],
+							"path": [
+								"api",
+								"cuentas",
+								"numero",
+								"2400036"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Listado de Cuentas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURLCU}}/api/cuentas",
+							"host": [
+								"{{baseURLCU}}"
+							],
+							"path": [
+								"api",
+								"cuentas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Cuenta por cliente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURLCU}}/api/cuentas/cliente/CLI100",
+							"host": [
+								"{{baseURLCU}}"
+							],
+							"path": [
+								"api",
+								"cuentas",
+								"cliente",
+								"CLI100"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Activar - Desactivar Cuenta",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"estado\": false\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8082/api/cuentas/7/estado",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"cuentas",
+								"7",
+								"estado"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Account Service - Movimientos",
+			"item": [
+				{
+					"name": "Endpoint de salud de movimientos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURLCU}}/api/movimientos/health",
+							"host": [
+								"{{baseURLCU}}"
+							],
+							"path": [
+								"api",
+								"movimientos",
+								"health"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registrar Movimiento (Depósito)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"tipoMovimiento\": \"DEPOSITO\",\n  \"valor\": 6000.00,\n  \"numeroCuenta\": \"2400036\",\n  \"descripcion\": \"Depósito en efectivo\"\n}"
+						},
+						"url": {
+							"raw": "{{baseURLCU}}/api/movimientos",
+							"host": [
+								"{{baseURLCU}}"
+							],
+							"path": [
+								"api",
+								"movimientos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registrar Movimiento (Retiro)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"tipoMovimiento\": \"RETIRO\",\n  \"valor\": 1000.00,\n  \"numeroCuenta\": \"2400036\",\n  \"descripcion\": \"Retiro en cajero\"\n}"
+						},
+						"url": {
+							"raw": "{{baseURLCU}}/api/movimientos",
+							"host": [
+								"{{baseURLCU}}"
+							],
+							"path": [
+								"api",
+								"movimientos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registrar Movimiento (Retiro, sin saldo)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"tipoMovimiento\": \"RETIRO\",\n  \"valor\": 10000000.00,\n  \"numeroCuenta\": \"2400036\",\n  \"descripcion\": \"Retiro sin saldo suficiente\"\n}"
+						},
+						"url": {
+							"raw": "{{baseURLCU}}/api/movimientos",
+							"host": [
+								"{{baseURLCU}}"
+							],
+							"path": [
+								"api",
+								"movimientos"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Ejemplo Error Saldo no disponible",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ""
+								}
+							},
+							"status": "409 Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "{\n  \"error\": \"Saldo no disponible\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Actualizar Movimiento",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"descripcion\": \"Retiro cajero automático TEST\"\n}"
+						},
+						"url": {
+							"raw": "{{baseURLCU}}/api/movimientos/2",
+							"host": [
+								"{{baseURLCU}}"
+							],
+							"path": [
+								"api",
+								"movimientos",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar Movimiento",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURLCU}}/api/movimientos/3",
+							"host": [
+								"{{baseURLCU}}"
+							],
+							"path": [
+								"api",
+								"movimientos",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Listado de los Movimientos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURLCU}}/api/movimientos",
+							"host": [
+								"{{baseURLCU}}"
+							],
+							"path": [
+								"api",
+								"movimientos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Movimiento por numeroCuenta",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURLCU}}/api/movimientos/cuenta/2400036",
+							"host": [
+								"{{baseURLCU}}"
+							],
+							"path": [
+								"api",
+								"movimientos",
+								"cuenta",
+								"2400036"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Movimiento por cliente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURLCU}}/api/movimientos/cliente/CLI100",
+							"host": [
+								"{{baseURLCU}}"
+							],
+							"path": [
+								"api",
+								"movimientos",
+								"cliente",
+								"CLI100"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Account Service - Reportes",
+			"item": [
+				{
+					"name": "Endpoint de salud de reportes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURLCU}}/api/reportes/health",
+							"host": [
+								"{{baseURLCU}}"
+							],
+							"path": [
+								"api",
+								"reportes",
+								"health"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reporte por Cliente y Fechas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURLCU}}/api/reportes/cliente/CLI100?fechaInicio=2025-01-01T00:00:00&fechaFin=2025-12-31T23:59:59",
+							"host": [
+								"{{baseURLCU}}"
+							],
+							"path": [
+								"api",
+								"reportes",
+								"cliente",
+								"CLI100"
+							],
+							"query": [
+								{
+									"key": "fechaInicio",
+									"value": "2025-01-01T00:00:00"
+								},
+								{
+									"key": "fechaFin",
+									"value": "2025-12-31T23:59:59"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Ejemplo de respuesta",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ""
+								}
+							},
+							"status": "200 OK",
+							"code": 200,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "{\n  \"clienteId\": \"CLI001\",\n  \"cuentas\": [{\n    \"numeroCuenta\": \"478758\",\n    \"saldoActual\": 1500.00,\n    \"movimientos\": [{\n      \"tipoMovimiento\": \"DEPOSITO\",\n      \"valor\": 100.00,\n      \"fecha\": \"2025-08-28T10:30:00\",\n      \"descripcion\": \"Depósito en efectivo\"\n    }]\n  }]\n}"
+						}
+					]
+				},
+				{
+					"name": "Reporte por Cuenta y Fechas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURLCU}}/api/reportes/cuenta/2400036?fechaInicio=2025-01-01T00:00:00&fechaFin=2025-12-31T23:59:59",
+							"host": [
+								"{{baseURLCU}}"
+							],
+							"path": [
+								"api",
+								"reportes",
+								"cuenta",
+								"2400036"
+							],
+							"query": [
+								{
+									"key": "fechaInicio",
+									"value": "2025-01-01T00:00:00"
+								},
+								{
+									"key": "fechaFin",
+									"value": "2025-12-31T23:59:59"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Movimientos recientes por cliente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURLCU}}/api/reportes/cliente/CLI100/recientes?dias=30",
+							"host": [
+								"{{baseURLCU}}"
+							],
+							"path": [
+								"api",
+								"reportes",
+								"cliente",
+								"CLI100",
+								"recientes"
+							],
+							"query": [
+								{
+									"key": "dias",
+									"value": "30"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Estadísticas de cuenta",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURLCU}}/api/reportes/cuenta/2400036/estadisticas?fechaInicio=2025-01-01T00:00:00&fechaFin=2025-12-31T23:59:59",
+							"host": [
+								"{{baseURLCU}}"
+							],
+							"path": [
+								"api",
+								"reportes",
+								"cuenta",
+								"2400036",
+								"estadisticas"
+							],
+							"query": [
+								{
+									"key": "fechaInicio",
+									"value": "2025-01-01T00:00:00"
+								},
+								{
+									"key": "fechaFin",
+									"value": "2025-12-31T23:59:59"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reporte del día por cliente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURLCU}}/api/reportes/cliente/CLI100/hoy",
+							"host": [
+								"{{baseURLCU}}"
+							],
+							"path": [
+								"api",
+								"reportes",
+								"cliente",
+								"CLI100",
+								"hoy"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reporte de la semana por cliente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURLCU}}/api/reportes/cliente/CLI100/semana",
+							"host": [
+								"{{baseURLCU}}"
+							],
+							"path": [
+								"api",
+								"reportes",
+								"cliente",
+								"CLI100",
+								"semana"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reporte del mes por cliente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURLCU}}/api/reportes/cliente/CLI100/mes",
+							"host": [
+								"{{baseURLCU}}"
+							],
+							"path": [
+								"api",
+								"reportes",
+								"cliente",
+								"CLI100",
+								"mes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURLCLI",
+			"value": "http://localhost:8081",
+			"type": "default"
+		},
+		{
+			"key": "baseURLCU",
+			"value": "http://localhost:8082",
+			"type": "string"
+		}
+	]
+}
